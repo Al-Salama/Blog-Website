@@ -1,0 +1,339 @@
+@import "helpers/header.css";
+@import "helpers/footer.css";
+@import "helpers/scroll.css";
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,500;1,300;1,500&display=swap');
+
+/* Table of Contents */
+/*
+
+    • General styles
+    • Page container
+    • Article contents
+    • Other articles
+    • Subscription
+    • Media queries
+*/
+
+
+
+/* General styles */
+
+:root {
+    --special-text-color: #7bc5ac;
+
+    --button-color: #76b19d;
+    --button-color-dark: #588374;
+    --button-shadow-color-1: rgba(45, 35, 66, 0.3);
+    --button-shadow-color-2: rgba(45, 35, 66, 0.3);
+    --button-shadow-color-3: rgba(45, 35, 66, 0.4);
+
+    --color-white: #e5e5e5;
+    --color-dark: #1a1a1a;
+
+    --subscribe-color-background: #489078;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+
+    background-color: var(--color-dark);
+    padding: 0;
+    margin: 0;
+    color: #ffffff00;
+    font-family: 'Poppins', Helvetica, Arial, sans-serif;
+    font-size: 1.15em;
+    font-weight: 300;
+    color: var(--color-white);
+}
+
+h1{
+    margin-bottom: 32px;
+}
+
+h1,
+h2,
+h3{
+    font-size: initial;
+    font-weight: 500;
+}
+
+a{
+    color: var(--special-text-color);
+    text-decoration: none;
+}
+
+figure{
+    margin: 0;
+    max-width: 100%;
+    width: 100%;
+}
+
+figcaption{
+    font-size: 0.8em;
+}
+
+.no-wrap {
+    white-space: nowrap;
+}
+
+
+/* Page container */
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 8vh minmax(79vh, max-content) 13vh;
+    grid-template-areas:
+        "hdr"
+        "content"
+        "ftr"
+    ;
+}
+
+.article-container {
+    grid-area: content;
+    width: 80%;
+    max-width: 900px;
+    margin: 0 auto 200px auto;
+    padding: 32px 0;
+    justify-content: center;
+}
+
+.main-content {
+    padding-bottom: 20px;
+    margin-bottom: 70px;
+    border-bottom: 1px outset var(--color-white);
+}
+
+.article{
+    border-bottom: 1px outset var(--color-white);
+    padding: 0 0 15px;
+    margin: 0 0 15px;
+}
+
+/* Article contents */
+
+.intro {
+    margin: 0 0 40px;
+}
+
+.article-intro {
+    line-height: 1.6em;
+}
+
+.intro-content{
+    margin: 0 0 20px;
+}
+
+.article-img {
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+}
+
+.article-piece {
+    margin-bottom: 15px;
+    line-height: 1.6em;
+    letter-spacing: 0.5px;
+}
+
+.list {
+    line-height: 1.4em;
+    letter-spacing: 0.5px;
+}
+
+.list-section{
+    margin: 0 0 3em;
+}
+
+/* Other articles */
+
+.other-articles{
+    border-bottom: 1px outset var(--color-white);
+}
+
+.articles-list{
+    list-style: circle;
+    padding: 0 0 0 2em;
+    color: var(--button-color-dark);
+}
+
+.articles-list li{
+    margin: 0 0 2em;
+}
+
+
+/* Author Info */
+
+.author-info{
+    margin-top: 20px;
+}
+
+.avatar-name{
+    display: flex;
+    flex-direction: row;
+}
+
+.author-avatar{
+    width: 64px;
+    height: 64px;
+    margin-right: 16px;
+    border-radius: 50%;
+    /* border-width: 3px;
+    border-style: solid;
+    border-color: var(--button-color-dark); */
+}
+
+.author-bio{
+    width: 80%;
+    max-width: 550px;
+    margin: -8px 0 32px 80px;
+    font-size: 0.9em;
+}
+
+
+/* Subscription */
+
+.subscribe {
+    width: calc(100% - 30px);
+    background-color: var(--subscribe-color-background);
+    color: var(--color-white);
+    height: max-content;
+    border-radius: 1em;
+    padding: 5px 10px;
+    margin: auto;
+    margin-top: 1.34em;
+    text-align: center;
+    max-width: 250px;
+    text-shadow: 1px 1px 2px var(--color-dark);
+}
+
+.subscribe p {
+    font-size: 1.15em;
+}
+
+.mail-form {
+    margin-bottom: 30px;
+}
+
+.subscribe .email-input {
+    height: 50px;
+    width: 100%;
+    padding: 5px 10px;
+    border: none;
+    border-bottom: 3px solid var(--color-dark);
+    border-radius: 10px;
+    font-family: 'Poppins', Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.subscribe .email-input:focus {
+    outline: none;
+}
+
+.subscribe .subscribe-btn {
+    background-image: radial-gradient(100% 100% at 100% 0, var(--color-white) 0, var(--button-color) 100%);
+    border: 0;
+    border-radius: 6px;
+    box-shadow: var(--button-shadow-color-3) 0 2px 4px, var(--button-shadow-color-1) 0 7px 13px -3px, var(--button-shadow-color-2) 0 -3px 0 inset;
+    color: #fff;
+    cursor: pointer;
+    margin-top: 20px;
+    height: 45px;
+    overflow: hidden;
+    padding: 0 16px;
+    transition: box-shadow .15s, transform .15s;
+    touch-action: manipulation;
+    font-family: 'Poppins', Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    text-shadow: 1px 1px 2px var(--color-dark);
+}
+
+.subscribe .subscribe-btn:focus {
+    box-shadow: var(--button-color-dark) 0 0 0 1.5px inset, var(--button-shadow-color-3) 0 2px 4px, var(--button-shadow-color-1) 0 7px 13px -3px, var(--button-color-dark) 0 -3px 0 inset;
+}
+
+.subscribe .subscribe-btn:hover {
+    box-shadow: var(--button-shadow-color-3) 0 4px 8px, var(--button-shadow-color-1) 0 7px 13px -3px, var(--button-color-dark) 0 -3px 0 inset;
+    transform: translateY(-2px);
+}
+
+.subscribe .subscribe-btn:active {
+    box-shadow: var(--button-color-dark) 0 3px 7px inset;
+    transform: translateY(2px);
+}
+
+
+/* Media queries */
+
+@media (width >= 500px){
+    h1{
+        font-size: 28px;
+    }
+
+    h2{
+        font-size: 22px;
+    }
+    h3{
+        font-size: 16px;
+    }
+}
+
+@media (width >=900px) {
+
+    .intro {
+        display: flex;
+        margin: 0 0 60px;
+    }
+
+    .intro-content{
+        width: 100%;
+        height: auto;
+        margin: 0;
+        padding-right: 30px;
+    }
+
+    figur{
+        width: 55%;
+        margin: 0;
+    }
+}
+
+@media (width >=1200px) {
+    .article-container {
+        grid-area: content;
+
+        display: grid;
+        grid-template-columns: min(350px, 23vw) 1fr min(350px, 23vw);
+        grid-template-rows: 1fr;
+        grid-template-areas:
+            "leftSide main rightSide"
+        ;
+
+        width: 100%;
+        max-width: none;
+        margin: 60px 0 0 0;
+        padding: 0;
+        justify-content: initial;
+    }
+
+    .main-content {
+        grid-area: main;
+        display: flex;
+        flex-direction: column;
+        width: 90%;
+        max-width: 900px;
+        margin: 0 auto 200px auto;
+        border-bottom: none;
+    }
+
+    .subscribe {
+        grid-area: rightSide;
+    }
+}

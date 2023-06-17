@@ -1,0 +1,67 @@
+/* footer */
+
+.footer{
+    grid-area: ftr;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 15px 0;
+    font-family: 'Merriweather', serif;
+    font-size: 14px;
+    font-weight: 400;
+
+    background-color: #202020;
+    position: sticky;
+}
+
+.footer-content{
+    display: block;
+    padding: 15px 15px 0;
+    align-items: flex-start;
+
+    --icon-size: 32px;
+}
+
+.footer-text{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    color: #e5e5e5;
+}
+
+.socials{
+    display: flex;
+    /* making enough space for the icons, this includes the space between them */
+    width: calc(var(--icon-size) * 3 + var(--icon-size) / 2);
+    height: var(--icon-size);
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    margin: auto;
+}
+
+.facebook{
+    width: var(--icon-size);
+    height: var(--icon-size);
+    background-image: url(../../imgs/facebook.svg);
+    background-repeat: no-repeat;
+    background-size: 112%;
+    background-position: center;
+}
+
+.twitter{
+    width: var(--icon-size);
+    height: var(--icon-size);
+    background-image: url(../../imgs/twitter.svg);
+    background-repeat: no-repeat;
+    background-size: 115%;
+    background-position: center;
+}
+
+.linkedin{
+    width: var(--icon-size);
+    height: var(--icon-size);
+    background-image: url(../../imgs/linkedin.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+}

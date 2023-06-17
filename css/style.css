@@ -1,0 +1,148 @@
+@import "helpers/header.css";
+@import "helpers/footer.css";
+@import "helpers/scroll.css";
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,500;1,300;1,500&display=swap');
+
+/* Table of Contents */
+/*
+    • General styles
+    • Page layout
+    • Posts
+    • Media queries
+*/
+
+
+/* General styles */
+
+:root{
+    --special-text-color: #7bc5ac;
+    --background-color: #1a1a1a;
+    --text-color: #e5e5e5;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+body{
+
+    background-color: #1a1a1a;
+    padding: 0;
+    margin: 0;
+    color: var(--text-color);
+    font-family: 'Poppins', Helvetica, Arial, sans-serif;
+    font-size: 19px;
+    font-weight: 300;
+}
+
+h2,
+h3{
+    font-size: initial;
+    font-weight: 500;
+}
+
+small{
+    font-size: 0.75em;
+}
+
+a{
+    color: var(--special-text-color);
+    text-decoration: none;
+}
+
+.no-wrap{
+    white-space: nowrap;
+}
+
+.read-more{
+    border-bottom: thin solid var(--special-text-color);
+}
+
+.author-name{
+    color: var(--special-text-color);
+}
+
+
+/* Page layout */
+
+.container{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 8vh minmax(79vh, max-content) 13vh;
+    grid-template-areas:
+        "hdr"
+        "posts"
+        "ftr"
+    ;
+}
+
+.cards-container{
+    grid-area: posts;
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 30px 0;
+}
+
+
+/* Posts */
+
+.post{
+    display: flex;
+    flex-direction: column;
+    margin: 0 0 40px 0;
+    justify-content: center;
+    align-items: center;
+}
+
+.post-content{
+    padding: 30px 20px;
+}
+
+.post-content h2{
+    margin-bottom: 0;
+}
+
+.post-content h3{
+    margin: 1em 0 0 0;
+}
+
+.post-media img{
+    height: auto;
+    max-width: 100%;
+}
+
+
+/* Media queries */
+
+@media (width >= 500px){
+    h2{
+        font-size: 24px;
+    }
+    h3{
+        font-size: 18px;
+    }
+}
+
+@media (width >= 900px){
+    .cards-container{
+        width: 88%;
+    }
+
+    .post{
+        flex-direction: row-reverse;
+        margin: 0 0 60px 0;
+    }
+
+    .post:nth-of-type(even){
+        flex-direction: row;
+    }
+
+    .post-media, .post-content{
+        width: 50%;
+        height: 100%;
+    }
+}
